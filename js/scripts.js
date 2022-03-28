@@ -9,6 +9,7 @@ function saveTask(e) {
     title,
     description
   };
+  
 
   if(localStorage.getItem('tasks') === null) {
     let tasks = [];
@@ -38,6 +39,7 @@ function deleteTask(title) {
   getTasks();
 }
 
+
 function getTasks() {
   let tasks = JSON.parse(localStorage.getItem('tasks'));
   let tasksView = document.getElementById('tasks');
@@ -55,5 +57,27 @@ function getTasks() {
       </div>`;
   }
 }
-
 getTasks();
+
+const boton = document.getElementById('boton') 
+
+boton .addEventListener('click', () => {
+
+  Toastify({
+    text: "Tu tarea se ha guardado!",
+    duration: 2000,
+    gravity: "bottom", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    style: {
+      background: "linear-gradient(to top, #00b09b, #00b59b)",
+    },
+    
+
+  }).showToast();
+})
+
+
+
+
+
+
